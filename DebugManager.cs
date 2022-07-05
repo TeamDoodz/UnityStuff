@@ -60,4 +60,12 @@ public class DebugManager : Singleton<DebugManager> {
 		}
 	}
 
+#if DEVELOPMENT_BUILD // Keybind for debug menu should only be usable in dev builds
+	private void Update() {
+		if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D)) {
+			DebugActive = !DebugActive;
+		}
+	}
+#endif
+
 }

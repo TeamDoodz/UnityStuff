@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 public static class CollectionsUtil {
 	public static T GetRandom<T>(this List<T> list) {
@@ -52,5 +53,13 @@ public static class CollectionsUtil {
 		T valB = self[B];
 		self[A] = valB;
 		self[B] = valA;
+	}
+
+	public static string PrettyPrint<T>(this IEnumerable<T> self, char seperator = '\n') {
+		StringBuilder sb = new StringBuilder();
+		foreach(var i in self) {
+			sb.Append($"{i}{seperator}");
+		}
+		return sb.ToString();
 	}
 }
